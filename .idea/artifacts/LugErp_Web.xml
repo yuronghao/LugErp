@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="LugErp:Web">
+    <output-path>$PROJECT_DIR$/classes/artifacts/LugErp_Web</output-path>
+    <root id="archive" name="LugErp_Web.war">
+      <element id="artifact" artifact-name="LugErp:Web exploded" />
+    </root>
+  </artifact>
+</component>
