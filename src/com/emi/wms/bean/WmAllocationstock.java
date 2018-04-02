@@ -59,7 +59,15 @@ public class WmAllocationstock {
 	@EmiColumn(name="cvMIVenCode" )
 	private String cvMIVenCode;//代管商编码
 
+	private String goodsStandard;//规格型号
 
+	public String getGoodsStandard() {
+		return goodsStandard;
+	}
+
+	public void setGoodsStandard(String goodsStandard) {
+		this.goodsStandard = goodsStandard;
+	}
 
 	private String goodsName;
 

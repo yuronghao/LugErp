@@ -104,7 +104,7 @@
 
 
     function toOutPut(){
-        var dtitlelist="{\"goodscode\":\"物料编码\",\"goodsName\":\"物品名称\",\"whName\":\"仓库名称\",\"goodsallocationcode\":\"货位编码\",\"name\":\"货位名称\",\"batch\":\"批次\",\"unitName\":\"主单位\",\"number\":\"主数量\"}";
+        var dtitlelist="{\"goodscode\":\"物料编码\",\"goodsName\":\"物品名称\",\"goodsStandard\":\"物品规格\",\"whName\":\"仓库名称\",\"goodsallocationcode\":\"货位编码\",\"name\":\"货位名称\",\"batch\":\"批次\",\"unitName\":\"主单位\",\"number\":\"主数量\"}";
 
 
         $("#warehouses").val($("#xsry").combobox('getValues'));
@@ -147,6 +147,7 @@
 			 					<th style="width: 120px;">序号</th>
 			 					<th>物品编码</th>
 			 					<th>物品名称</th>
+								<th>物品规格</th>
 			 					<th>仓库名称</th>
 			 					<th>货位编码</th>
 			 					<th>货位名称</th>
@@ -162,6 +163,7 @@
 								<td style="width: 120px;">${(data.pageIndex-1)*data.pageSize+stat.count}</td>
 								<td>${bean.goodscode}</td>
 								<td>${bean.goodname}</td>
+								<td>${bean.goodsStandard}</td>
 								<td>${bean.whname}</td>
 								<td>${bean.goodsallocationcode}</td>
 								<td>${bean.allocationname}</td>

@@ -1197,8 +1197,9 @@ public class WareHouseDao extends BaseDao {
 			Map match = new HashMap();
 
 			match.put("goodsName", "goodsName");
+			match.put("goodsStandard", "goodsStandard");
 
-			String sql ="select "+CommonUtil.colsFromBean(WmAllocationstock.class,"owh")+",ag.goodsName  from WM_AllocationStock owh left join AA_Goods ag on ag.goodsCode = owh.goodsCode  where 1=1 and owh.number >0  ";
+			String sql ="select "+CommonUtil.colsFromBean(WmAllocationstock.class,"owh")+",ag.goodsName,ag.goodsStandard  from WM_AllocationStock owh left join AA_Goods ag on ag.goodsCode = owh.goodsCode  where 1=1 and owh.number >0  ";
 			if(!CommonUtil.isNullString(condition)){
 				sql += condition;
 			}
@@ -1322,7 +1323,7 @@ public class WareHouseDao extends BaseDao {
 
 		match.put("goodsName", "goodsName");
 
-		String sql ="select "+CommonUtil.colsFromBean(WmAllocationstock.class,"owh")+",ag.goodsName,ga.name,u.unitName,wa.whName  " +
+		String sql ="select "+CommonUtil.colsFromBean(WmAllocationstock.class,"owh")+",ag.goodsName,ga.name,u.unitName,wa.whName,ag.goodsStandard  " +
 				" from WM_AllocationStock owh left join AA_Goods ag on ag.goodsCode = owh.goodsCode  " +
 				" left join AA_WareHouse wa on wa.whCode = owh.whCode "+
 				" left join AA_GoodsAllocation ga on ga.code = owh.goodsAllocationCode "+
