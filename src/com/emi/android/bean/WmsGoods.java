@@ -50,6 +50,38 @@ public class WmsGoods implements Serializable {
 	private List<WmsGoodsCfree> cfree;//自由项
 	private String gid;//wms存子表时对应的gid（安卓提交使用）
 
+
+	//==================2018-4-26 修改start 添加三个字段回传到U8只是起辅助作用===========================
+	private String orderNo;  // 单号
+	private String machineNo;  // 机号
+	private String productCode;  // 产品编码
+	//==================2018-4-26 修改end===========================
+
+
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public String getMachineNo() {
+		return machineNo;
+	}
+
+	public void setMachineNo(String machineNo) {
+		this.machineNo = machineNo;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
 	private List<WmAllocationstock> wmAllocationstocks;
 
 	public List<WmAllocationstock> getWmAllocationstocks() {

@@ -27,6 +27,9 @@ public class WmsTaskDetailRsp implements Serializable {
 	private String orggid;//组织（安卓提交使用）
 	private String sobgid;//帐套（安卓提交使用）
 
+
+
+
 	private String notes;
 
 	public String getNotes() {
