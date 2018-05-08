@@ -452,7 +452,11 @@ public String getpurchaselist(){
 //						if(cfree1==1&&!CommonUtil.isNullString(process[i])){
 //							ss = getParameter("printservice")+"|"+template+"|sntext="+goodsName[i]+"|sncode="+goodsCode[i]+"&"+process[i]+"|snbatch="+CommonUtil.Obj2String(batch[i])+"|cfree="+cfree[i]+"|standard="+goodsstandard[i]+"|date="+billDate+"|amount="+smallamount[i];
 //						}else{
-							ss = printservice+"|"+printmodel+"|sntext="+printGood.getGoodsName()+"|sncode="+printGood.getGoodsCode()+"|standard="+printGood.getGoodsstandard()+"|date="+billDate;
+							String standardString = printGood.getGoodsstandard();
+							if(standardString == null){
+								standardString = "";
+							}
+							ss = printservice+"|"+printmodel+"|sntext="+printGood.getGoodsName()+"|sncode="+printGood.getGoodsCode()+"|standard="+standardString+"|date="+billDate;
 //						}
 						if(!CommonUtil.isNullString(String.valueOf(printGood.getPrintamount()))){
 							for(int j=0;j<printGood.getPrintamount();j++){
