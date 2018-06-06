@@ -694,8 +694,8 @@ public class WareHouseAction extends BaseAction
 
 		try{
 			JSONObject jboj=getJsonObject();
-			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_CLCK);// 材料出库
-			wareHouseService.subMaterialOut(jboj,billcode);
+//			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_CLCK);// 材料出库
+			wareHouseService.subMaterialOut(jboj,null);
 			Map reqmap=new HashMap();
 			reqmap.put("success", "1");
 			reqmap.put("failInfor", "");
@@ -739,8 +739,8 @@ public class WareHouseAction extends BaseAction
 
 			getResponse().setCharacterEncoding("UTF-8");
 			JSONObject jsonObject = getJsonObject();
-			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_QTRK);
-			wareHouseService.subOtherIn(jsonObject,billcode);
+//			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_QTRK);
+			wareHouseService.subOtherIn(jsonObject,null);
 			this.writeSuccess();
 
 		} catch (Exception e) {
@@ -760,8 +760,8 @@ public class WareHouseAction extends BaseAction
 
 			getResponse().setCharacterEncoding("UTF-8");
 			JSONObject jsonObject = getJsonObject();
-			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_QTCK);
-			wareHouseService.subOtherOut(jsonObject,billcode);
+//			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_QTCK);
+			wareHouseService.subOtherOut(jsonObject,null);
 			this.writeSuccess();
 
 		} catch (Exception e) {
@@ -814,6 +814,40 @@ public class WareHouseAction extends BaseAction
 
 			this.writeSuccess();
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			this.writeError();
+		}
+	}
+
+
+
+	/**
+	* @Desc  安卓获取单号根据任务类型 TASKTYPE_*
+	* @author yurh
+	* @create 2018-06-06 13:54:19
+	**/
+	public void getAppBillCode(){
+		try {
+			getResponse().setCharacterEncoding("UTF-8");
+			JSONObject jsonObject = getJsonObject();
+			String type = jsonObject.getString("type");
+			String realAppBillCode = "";
+			if(type!=null && !"".equals(type)){
+				if(Constants.TASKTYPE_CLCK.equals(type)){
+					realAppBillCode = wareHouseService.getBillId(Constants.TASKTYPE_CLCK);// 材料出库
+				}else if(Constants.TASKTYPE_QTCK.equals(type)){
+					realAppBillCode = wareHouseService.getBillId(Constants.TASKTYPE_QTCK);//其他出库
+				}else if(Constants.TASKTYPE_QTRK.equals(type)){
+					realAppBillCode = wareHouseService.getBillId(Constants.TASKTYPE_QTRK);//其他入库
+				}
+
+
+			}
+			Map map = new HashMap();
+			map.put("success", "1");
+			map.put("appBillCode", realAppBillCode);
+			this.responseWrite(EmiJsonObj.fromObject(map).toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 			this.writeError();

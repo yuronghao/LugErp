@@ -4411,7 +4411,7 @@ public class WareHouseService extends EmiPluginService {
             wmMaterialout
                     .setDocumenttypeuid("B65B212E-3C78-44CB-8F3E-43913F3664B7");// WM_BillType  材料出库 billcode：0050
 //			String billcode = this.getBillId(Constants.TASKTYPE_CLCK);// 委外材料出库
-            wmMaterialout.setBillcode(billcode);
+            wmMaterialout.setBillcode(msTaskDetailRsp.getAppBillCode());//2018-0606 单号改成从安卓端传
             wmMaterialout.setBilldate(new Date());
             wmMaterialout.setRecordperson(msTaskDetailRsp.getUserGid());
             wmMaterialout.setSobgid(msTaskDetailRsp.getSobgid());
@@ -4640,7 +4640,7 @@ public class WareHouseService extends EmiPluginService {
             wmoh.setRecordPersonId(msTaskDetailRsp.getUserGid());
             wmoh.setSobGid(msTaskDetailRsp.getSobgid());
             wmoh.setOrgGid(msTaskDetailRsp.getOrggid());
-            wmoh.setBillCode(billcode);
+            wmoh.setBillCode(msTaskDetailRsp.getAppBillCode());
 
             wmOtherwarehouses.add(wmoh);
 
@@ -4837,7 +4837,7 @@ public class WareHouseService extends EmiPluginService {
             wmoh.setPersonUid(msTaskDetailRsp.getUserGid());
             wmoh.setSobGid(msTaskDetailRsp.getSobgid());
             wmoh.setOrgGid(msTaskDetailRsp.getOrggid());
-            wmoh.setBillCode(billcode);
+            wmoh.setBillCode(msTaskDetailRsp.getAppBillCode());
             wmoh.setRecordPersonUid(msTaskDetailRsp.getUserGid());
 
             wmOthersouts.add(wmoh);

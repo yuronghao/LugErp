@@ -27,8 +27,16 @@ public class WmsTaskDetailRsp implements Serializable {
 	private String orggid;//组织（安卓提交使用）
 	private String sobgid;//帐套（安卓提交使用）
 
+	private  String appBillCode;//安卓 传的单据号 2018-06-06
 
 
+	public String getAppBillCode() {
+		return appBillCode;
+	}
+
+	public void setAppBillCode(String appBillCode) {
+		this.appBillCode = appBillCode;
+	}
 
 	private String notes;
 
