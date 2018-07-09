@@ -982,7 +982,7 @@ public class WareHouseService extends EmiPluginService {
      * @author 杨峥铖
      */
     public boolean addprocurehouse(WmsTaskDetailRsp msTaskDetailRsp,
-                                   JSONObject jsonObject, String billCode) throws Exception {
+                                   JSONObject jsonObject, String billcode) throws Exception {
         WmTask wmtask = taskDao.getTask(msTaskDetailRsp.getTaskGid());
 
         WmProcureorder puorder = new WmProcureorder();
@@ -1027,7 +1027,7 @@ public class WareHouseService extends EmiPluginService {
             wmPowarehouse
                     .setDocumenttypeuid("B89815B2-21B4-4CF5-9D02-B67BFF507C8E");// WM_BillType 单据类型  此gid是采购入库
 //			String billcode = this.getBillId(Constants.TASKTYPE_CGRK);
-            wmPowarehouse.setBillcode(billCode);
+            wmPowarehouse.setBillcode(msTaskDetailRsp.getAppBillCode());
             wmPowarehouse.setBillstate("0");
             wmPowarehouse.setBilldate(new Timestamp(new Date().getTime()));
             wmPowarehouse.setRecordpersonid(msTaskDetailRsp.getUserGid());

@@ -4,10 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -113,9 +110,18 @@ public class EmiPluginService {
 			strMonth=String.valueOf(month);
 		}
 
+
+		String strDay;
+		int day = DateUtil.getDay(new Date());
+		if(String.valueOf(day).length()==1){
+			strDay="0"+String.valueOf(day);
+		}else{
+			strDay=String.valueOf(day);
+		}
+
 		String currentId=emiPluginDao.getBillId(billType, year+strMonth);
 
-		String billId=billType+year+strMonth+currentId;
+		String billId=year+strMonth+strDay+currentId;
 
 		return billId;
 	}

@@ -330,8 +330,8 @@ public class WareHouseAction extends BaseAction
 			classMap.put("cfree", WmsGoodsCfree.class);
 			WmsTaskDetailRsp wmsTaskDetailRsp=(WmsTaskDetailRsp)JSONObject.toBean(jsonObject, WmsTaskDetailRsp.class,classMap);
 			
-			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_CGRK);
-			wareHouseService.addprocurehouse(wmsTaskDetailRsp,jsonObject,billcode);
+//			String billcode = wareHouseService.getBillId(Constants.TASKTYPE_CGRK);
+			wareHouseService.addprocurehouse(wmsTaskDetailRsp,jsonObject,null);
 			this.writeSuccess();
 			
 		} catch (Exception e) {
@@ -840,8 +840,9 @@ public class WareHouseAction extends BaseAction
 					realAppBillCode = wareHouseService.getBillId(Constants.TASKTYPE_QTCK);//其他出库
 				}else if(Constants.TASKTYPE_QTRK.equals(type)){
 					realAppBillCode = wareHouseService.getBillId(Constants.TASKTYPE_QTRK);//其他入库
+				}else if(Constants.TASKTYPE_CGRK.equals(type)){
+					realAppBillCode = wareHouseService.getBillId(Constants.TASKTYPE_CGRK);//采购入库
 				}
-
 
 			}
 			Map map = new HashMap();
